@@ -104,7 +104,7 @@ input,
 select,
 textarea {
 	color: #404040;
-	font-family: 'Vollkorn', serif;
+	font-family: 'georgia', serif;
 	font-size: 16px;
 	font-size: 1.6rem;
 	line-height: 1.5;
@@ -124,6 +124,8 @@ hr {
 /* Text elements */
 p {
 	margin-bottom: 1.5em;
+    margin-left:5px;
+    margin-right:5px;
 }
 ul, ol {
 	margin: 0 0 1.5em 3em;
@@ -315,16 +317,17 @@ textarea {
 
 /* Links */
 a {
-	color: black;
+	color: #fcaa3a;
     text-decoration:none;
 }
 a:visited {
-	color: black;
+	color: #fcaa3a;
 }
 a:hover,
 a:focus,
 a:active {
-	color: black;
+	color: #fcaa3a;
+    border-bottom:1px solid #fcaa3a;
 }
 
 /* Alignment */
@@ -622,57 +625,132 @@ object {
 
 /* =TRK Styles
 ----------------------------------------------- */
+
+.site-header a{
+    border:none;
+}
+
 /*
 Theme Name: trk
 Layout: Content
 */
 
 #page{
-    max-width:1140px;
+    max-width:1100px;
     margin:0 auto;  
 }
 
-h1{
-    font-size:200%;
+.site-main{
+    border:1px solid green;
+    max-width:760px;
 }
+
+h1{
+    color:#4d4c4f;
+    font-size:155%;
+    padding-left:5px;
+}
+
+.entry-title a {
+    color: #4d4c4f;
+    border:none;
+}
+
+.page-title{
+    font-size:300%;
+}
+
 
 .main-navigation{
     display:none;
 }
 
 .cat-links{
-    text-transform:uppercase;
+    color: #fcaa3a;
+    text-transform:lowercase;
+}
+
+.cat-links, .posted-on{
+    float:none;
+    margin-right:10px;
 }
 
 .cat-links{
-    float:left;
+    font-size:80%;
+}
+
+.posted-on, .comments-link{
     font-size:80%;
 }
 
 .entry-meta{
-    float:right;
+    line-height:1em;
+    margin-bottom:20px;
+    padding-left:5px;
 }
 
+.posted-on a, .comments-link a{
+    color: #4d4c4f;
+    border:none;
+}
+
+.link-img:hover{
+    border:none;
+}
 
 /*
 Theme Name: trk
 Layout: Content-Sidebar
 */
 
+#secondary{
+    border:1px solid red;
+}
+
+#secondary a:hover {
+    color: #db0000;
+}
+
 .content-area {
-	float: left;
-	margin: 0 -28% 0 0;
-	width: 100%;
+
 }
+
 .site-main {
-	margin: 0 28% 0 0;
+    float: left;
+	width: 70%;
 }
+
 .site-content .widget-area {
 	float: right;
 	overflow: hidden;
 	width: 26%;
 }
+
 .site-footer {
 	clear: both;
 	width: 100%;
 }
+
+.widget_nav_menu .menu-right-column-container ul{
+    float: left;
+    list-style:none;
+    margin-left:2em;
+    margin-top:.5em;
+}
+
+.widget_nav_menu .menu-right-column-container ul li{
+    float: left;
+    margin-right:1.9em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
