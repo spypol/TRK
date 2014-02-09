@@ -1,18 +1,16 @@
 <?php
-/**
- * The Template for displaying all single posts.
- *
- * @package trk
+/*
+ Template Name Posts: No Sidebar
  */
-
-get_header(); ?>
+get_header();
+?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main-no-sidebar" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'content', 'single' ); ?>
+			<?php get_template_part( 'content', 'single-nosidebar' ); ?>
 
 			<?php //trk_post_nav(); ?>
 
@@ -28,5 +26,4 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -48,7 +48,7 @@ if ( post_password_required() ) {
 				 * define trk_comment() and that will be used instead.
 				 * See trk_comment() in inc/template-tags.php for more.
 				 */
-				wp_list_comments( array( 'callback' => 'trk_comment' ) );
+				wp_list_comments( array( 'callback' => 'trk_comment', 'avatar_size' => '80' ) );
 			?>
 		</ol><!-- .comment-list -->
 

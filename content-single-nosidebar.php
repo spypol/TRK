@@ -8,28 +8,14 @@
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 
-		 <div class="entry-meta">
-            
-            <?php if ( 'post' == get_post_type() ) : ?>
-            
-                <?php trk_posted_on(); ?>
-            
-            <?php endif; ?>
-            
-            <?php
-                /* translators: used between list items, there is a space after the comma */
-                $categories_list = get_the_category_list( __( ' / ', 'trk' ) );
-                if ( $categories_list && trk_categorized_blog() ) :
-            ?>
-            <span class="cat-links">
-                <?php printf( __( '%1$s', 'trk' ), $categories_list ); ?>
-            </span>
-            <?php endif; // End if categories ?>
+		<div class="entry-meta">
+			<?php trk_posted_on(); ?>
+		</div><!-- .entry-meta -->
         
-        </div><!-- .entry-meta -->
+        <?php echo get_the_post_thumbnail(); ?>
 	</header><!-- .entry-header -->
-
-	<div class="entry-content">
+    
+	<div class="entry-content no-sidebar">
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(

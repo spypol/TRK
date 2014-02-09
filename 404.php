@@ -1,56 +1,70 @@
 <?php
 /**
- * The template for displaying 404 pages (Not Found).
- *
- * @package trk
+ * This is the page template for 404 Page not found response.
  */
+get_header();
+//get all the page data needed and set it to an object that can be used in other files
+		$pex_page=new stdClass();
+		$pex_page->subtitle='';
+		$pex_page->slider='none';
+		$pex_page->layout=get_opt('_blog_layout');
+		$pex_page->sidebar=get_opt('_blog_sidebar');
+		
+		//include the before content template
+		locate_template( array( 'includes/html-before-content.php'), true, true ); ?>
 
-get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'trk' ); ?></h1>
-				</header><!-- .page-header -->
-
-				<div class="page-content">
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'trk' ); ?></p>
-
-					<?php get_search_form(); ?>
-
-					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
-
-					<?php if ( trk_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
-					<div class="widget widget_categories">
-						<h2 class="widgettitle"><?php _e( 'Most Used Categories', 'trk' ); ?></h2>
-						<ul>
-						<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-						?>
-						</ul>
-					</div><!-- .widget -->
-					<?php endif; ?>
-
+		<h2 class="post-title" style="color:#f23f42;">
+			<?php //echo pex_text('_404_text'); ?>
+			Yeep! Your page cannot be found. As consolation, here is a recipe for your amusement.
+		</h2>
+		
+		
+		
+		
+		<?php
+			global $post;
+			$tmp_post = $post;
+			$args = array( 
+				'numberposts' => 1, 
+				'orderby'=> rand
+			);
+			$myposts = get_posts( $args );
+			foreach( $myposts as $post ) : setup_postdata($post); ?>
 					<?php
-					/* translators: %1$s: smiley */
-					$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', 'trk' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-					?>
+						$image_id = get_post_thumbnail_id();
+						$image_url = wp_get_attachment_image_src($image_id,array(900,600), true);
+						
+						if(has_post_thumbnail()){?>
+							<div class="blog-post-img">
+							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" style="
+								background:url('<?php echo $image_url[0]; ?>') no-repeat center center; 
+								padding:20px;
+								margin-top:40px;
+								vertical-align:bottom;
+								color:#fff7e2;
+								font-size:5em;
+								line-height:1em;
+								text-decoration:none;
+								text-shadow: 0.01em 0.01em 0.1em #BBB;
+								font-family: FragmentCore, sans-serif;
+								display:block; 
+								width:590px; 
+								height:400px; 
+								border:none;
+								box-shadow: 2px 2px 6px #AAA;">
+							<?php the_title(); ?>
+							</a>
+							</div>
+						<?php }	?>
+			<?php endforeach;?>
+		
+		
+		
+<?php 
+		
+//include the after content template
+locate_template( array( 'includes/html-after-content.php'), true, true );
+get_footer();
 
-					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+?>
 
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php get_footer(); ?>

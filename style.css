@@ -123,7 +123,8 @@ hr {
 
 /* Text elements */
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
+    margin-top:1em;
     margin-left:5px;
     margin-right:5px;
 }
@@ -289,7 +290,7 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-	color: #666;
+	color: #aaa;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
@@ -306,7 +307,7 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"] {
-	padding: 3px;
+	padding: 10px;
 }
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
@@ -635,14 +636,24 @@ Theme Name: trk
 Layout: Content
 */
 
+.site-main {
+    float: left;
+	width: 70%;
+}
+
+.site-main-no-sidebar {
+    float: left;
+	width: 100%;
+}
+
 #page{
     max-width:1100px;
     margin:0 auto;  
 }
 
-.site-main{
+.site-main, .site-main-no-sidebar{
     border:1px solid green;
-    max-width:760px;
+    /*max-width:760px;*/
 }
 
 h1{
@@ -660,6 +671,24 @@ h1{
     font-size:300%;
 }
 
+.no-sidebar p{
+    padding-left:250px;
+    padding-right:250px;
+}
+
+.site-main-no-sidebar .entry-header, .site-main-no-sidebar .entry-header .entry-title{
+    text-align:center;
+}
+
+.no-sidebar .img-post{
+    padding-left:0;
+    padding-right:0;
+    margin:0;
+}
+
+.no-sidebar .img-post a{
+    border:none;
+}
 
 .main-navigation{
     display:none;
@@ -689,13 +718,47 @@ h1{
     padding-left:5px;
 }
 
-.posted-on a, .comments-link a{
+.posted-on a, .comments-link a, .menu-item a{
     color: #4d4c4f;
     border:none;
 }
 
 .link-img:hover{
     border:none;
+}
+
+#entry-content-no-sidebar{
+    width:100%;
+}
+
+.entry-content img, .entry-header img{
+    width:100%;
+}
+
+.columns-wrapper .three-columns{
+    margin:0 1.5%;
+    width:30%;
+    float:left;
+    margin-bottom:25px;
+}
+
+.columns-wrapper .two-columns{
+    margin:0 2%;
+    width:30%;
+    float:left;
+    margin-bottom:25px;
+}
+
+.columns-wrapper .two-columns:last-child{
+    width:60%;
+}
+
+.avatar{
+    max-width:80px;
+}
+
+img.wp-smiley{
+    max-width:16px;
 }
 
 /*
@@ -708,22 +771,13 @@ Layout: Content-Sidebar
 }
 
 #secondary a:hover {
-    color: #db0000;
-}
-
-.content-area {
-
-}
-
-.site-main {
-    float: left;
-	width: 70%;
+    color: #fcaa3a;
 }
 
 .site-content .widget-area {
 	float: right;
 	overflow: hidden;
-	width: 26%;
+	width: 288px;
 }
 
 .site-footer {
@@ -734,15 +788,46 @@ Layout: Content-Sidebar
 .widget_nav_menu .menu-right-column-container ul{
     float: left;
     list-style:none;
-    margin-left:2em;
+    margin-left:15px;
     margin-top:.5em;
 }
 
 .widget_nav_menu .menu-right-column-container ul li{
     float: left;
-    margin-right:1.9em;
+    margin-right:20px;
 }
 
+.menu-item a{
+    font-size:135%;
+    font-weight:normal;
+}
+
+#nav-social{
+    margin:10px 0 50px 15px;
+}
+
+.icon-social{
+    float:left;
+    margin-right:20px;
+}
+
+.search-field, .wysija-input{
+    width:92%;
+    padding:15px;
+}
+
+.widget .wysija-paragraph{
+    margin-right:0;
+    margin-left:0;
+}
+
+.widget .wysija-text{
+    font-size:76%;
+}
+
+.widget .wysija-submit{
+    text-align:center;
+}
 
 
 
